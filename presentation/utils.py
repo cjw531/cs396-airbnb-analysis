@@ -1,7 +1,7 @@
 '''
 Encoding utilities for ML features
 '''
-
+import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from mlxtend.plotting import plot_confusion_matrix
@@ -56,6 +56,10 @@ def host_nth_year(df):
     return df
 
 def draw_matrix(y_test, y_pred, title, labels):
+    '''
+    Input: true, predicted y labels, title of plot, class names
+    Output: confusion matrix
+    '''
     cm = confusion_matrix(y_test, y_pred)
     figure, ax = plot_confusion_matrix(conf_mat = cm,
                                     class_names = labels,
@@ -65,3 +69,16 @@ def draw_matrix(y_test, y_pred, title, labels):
     plt.title(title)
     plt.rcParams.update({'font.size': 14})
     return plt
+
+def price_bin(df):
+    '''
+    Map $0-$100, $100-$200, $200-$300, $300-$400, $400-$500 -> 0,1,2,3,4
+    Input: dataframe
+    Output: dataframe with mapped price list
+    '''
+    df['price'] = np.where(df['price'] < 100, 0, df['price'])
+    df['price'] = np.where((df['price'] >= 100) & (df['price'] < 200), 1, df['price'])
+    df['price'] = np.where((df['price'] >= 200) & (df['price'] < 300), 2, df['price'])
+    df['price'] = np.where((df['price'] >= 300) & (df['price'] < 400), 3, df['price'])
+    df['price'] = np.where((df['price'] >= 400) & (df['price'] < 500), 4, df['price'])
+    return df

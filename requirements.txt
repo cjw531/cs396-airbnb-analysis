@@ -9,3 +9,7 @@ statsmodels
 scipy
 sklearn
 mlxtend
+textblob
+polyglot
+pyicu
+pycld2

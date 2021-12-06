@@ -13,3 +13,4 @@ textblob
 polyglot
 pyicu
 pycld2
+wordcloud

@@ -29,8 +29,8 @@ pip install -r requirements.txt
 │   └── utils.py ...helper functions listed
 ├── proposal/ ...proposal submission code
 │   ├── RMarkdown/ ...R markdown document
-│       ├── Project Proposal.Rmd ...proposal markdown file
-│       └── Project-Proposal.pdf ...proposal doc
+│   │   ├── Project Proposal.Rmd ...proposal markdown file
+│   │   └── Project-Proposal.pdf ...proposal doc
 │   └── proposal.ipynb ...basic EDA
 ├── .gitignore ...ignored during commits
 ├── README.MD ...contains repository information
